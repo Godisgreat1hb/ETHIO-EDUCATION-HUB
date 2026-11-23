@@ -3,123 +3,273 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#102b55">
 <title>ETHIO EDUCATION HUB</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f4f7fc;color:#17243a;line-height:1.6}
-header{background:#102b55;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.logo{font-size:21px;font-weight:bold}
-nav a{color:white;text-decoration:none;margin-left:15px;font-size:14px}
-.hero{background:linear-gradient(130deg,#102b55,#1769aa);color:white;text-align:center;padding:65px 20px}
-.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.2;margin-bottom:15px}
-.hero p{max-width:650px;margin:0 auto 22px;color:#e2edff}
-.btn{display:inline-block;background:#ffca38;color:#17243a;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
-section{padding:42px 6%}
-.section-title{text-align:center;margin-bottom:25px}
-.section-title h2{font-size:27px;color:#102b55}
-.section-title p{color:#68758a}
-.grades{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:15px}
-.grade{background:white;padding:22px;text-align:center;border-radius:12px;box-shadow:0 3px 14px #102b5510}
-.grade strong{display:block;color:#1769aa;font-size:25px}
-.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
-.subject{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 14px #102b5510;text-align:center;border:1px solid #e7edf5}
-.subject .emoji{font-size:30px}
-.subject h3{font-size:16px;margin-top:8px}
-.subject p{font-size:12px;color:#68758a}
-.info{background:#e8f1ff;border-radius:14px;padding:25px;text-align:center}
-.info p{margin:10px auto;max-width:650px}
-footer{background:#102b55;color:white;text-align:center;padding:25px 15px}
-input,select{padding:12px;border:1px solid #ccd6e5;border-radius:8px;width:100%;margin:8px 0;font-size:15px}
-.search{max-width:450px;margin:0 auto 22px}
-#message{margin-top:12px;color:#1769aa;font-weight:bold}
-@media(max-width:500px){header{justify-content:center;text-align:center}nav a{margin:0 7px}.hero{padding:48px 16px}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fc;color:#17243a}
+header{background:#102b55;color:white;padding:18px;text-align:center}
+header h2{margin:0}
+.hero{text-align:center;background:linear-gradient(130deg,#102b55,#1769aa);color:white;padding:40px 18px}
+.hero h1{font-size:32px}
+main{max-width:850px;margin:auto;padding:20px}
+.card{background:white;padding:22px;margin:18px 0;border-radius:13px;box-shadow:0 3px 15px #102b5512}
+h2{color:#102b55}
+input,select{display:block;width:100%;padding:13px;margin:10px 0;border:1px solid #ccd5e2;border-radius:8px;font-size:15px}
+button{background:#1769aa;color:white;border:0;padding:13px 18px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;width:100%;margin-top:8px}
+button.secondary{background:#102b55}
+button:disabled{opacity:.6}
+#message{padding:12px;border-radius:8px;margin-top:12px;overflow-wrap:anywhere}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.subject{background:#edf4ff;padding:16px;border-radius:10px;text-align:center;font-weight:bold}
+.hidden{display:none}
+small{color:#68758a}
+footer{text-align:center;background:#102b55;color:white;padding:22px}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">📘 ETHIO EDUCATION HUB</div>
-<nav>
-<a href="#home">Home</a>
-<a href="#grades">Grades</a>
-<a href="#subjects">Subjects</a>
-<a href="#about">About</a>
-</nav>
+<h2>📘 ETHIO EDUCATION HUB</h2>
+<p>Empowering Ethiopian Students</p>
 </header>
 
-<main>
-<section class="hero" id="home">
+<section class="hero">
 <h1>Learn Today. Lead Tomorrow.</h1>
-<p>Your learning destination for Ethiopian Grade 9–12 education and university entrance examination preparation.</p>
-<a class="btn" href="#subjects">Explore Subjects</a>
+<p>Your learning destination for Ethiopian Grade 9–12 and university entrance preparation.</p>
 </section>
 
-<section id="grades">
-<div class="section-title">
-<h2>Choose Your Grade</h2>
-<p>Learning resources for every stage.</p>
-</div>
-<div class="grades">
-<div class="grade"><strong>Grade 9</strong>Learning resources</div>
-<div class="grade"><strong>Grade 10</strong>Learning resources</div>
-<div class="grade"><strong>Grade 11</strong>Learning resources</div>
-<div class="grade"><strong>Grade 12</strong>Exam preparation</div>
-</div>
+<main>
+<section class="card" id="authSection">
+<h2>Student Account</h2>
+<p>Create an account or log in to access your student dashboard.</p>
+
+<form id="registerForm">
+<h3>New Student Registration</h3>
+<input id="fullName" type="text" placeholder="Full name" minlength="2" maxlength="100" required>
+<input id="registerEmail" type="email" placeholder="Email address" required>
+<input id="registerPassword" type="password" placeholder="Password (at least 6 characters)" minlength="6" required>
+<select id="grade" required>
+<option value="">Choose your grade</option>
+<option value="9">Grade 9</option>
+<option value="10">Grade 10</option>
+<option value="11">Grade 11</option>
+<option value="12">Grade 12</option>
+</select>
+<button id="registerButton" type="submit">Create Student Account</button>
+</form>
+
+<hr style="margin:25px 0;border:0;border-top:1px solid #ddd">
+
+<form id="loginForm">
+<h3>Student Login</h3>
+<input id="loginEmail" type="email" placeholder="Email address" required>
+<input id="loginPassword" type="password" placeholder="Password" required>
+<button class="secondary" id="loginButton" type="submit">Login</button>
+</form>
+<div id="message" role="status" aria-live="polite"></div>
 </section>
 
-<section id="subjects">
-<div class="section-title">
-<h2>Our Subjects</h2>
-<p>Explore your favorite subjects.</p>
+<section class="card hidden" id="dashboard">
+<h2>Welcome, <span id="studentName">Student</span>!</h2>
+<p>Your grade: <strong id="studentGrade"></strong></p>
+<p>Your student account is connected.</p>
+<h3>Available Subjects</h3>
+<div class="subjects">
+<div class="subject">🧬 Biology</div>
+<div class="subject">⚗️ Chemistry</div>
+<div class="subject">📐 Mathematics</div>
+<div class="subject">⚡ Physics</div>
+<div class="subject">📖 English</div>
+<div class="subject">🎓 SAT</div>
+<div class="subject">🌍 Geography</div>
+<div class="subject">🏛️ History</div>
+<div class="subject">📊 Economics</div>
 </div>
-<div class="search">
-<input id="search" type="search" placeholder="Search subjects..." oninput="filterSubjects()">
-</div>
-<div class="subjects" id="subjectList">
-<div class="subject"><div class="emoji">🧬</div><h3>Biology</h3><p>Explore living things</p></div>
-<div class="subject"><div class="emoji">⚗️</div><h3>Chemistry</h3><p>Discover matter</p></div>
-<div class="subject"><div class="emoji">📐</div><h3>Mathematics</h3><p>Build problem-solving skills</p></div>
-<div class="subject"><div class="emoji">⚡</div><h3>Physics</h3><p>Understand the universe</p></div>
-<div class="subject"><div class="emoji">📖</div><h3>English</h3><p>Improve communication</p></div>
-<div class="subject"><div class="emoji">🎓</div><h3>SAT</h3><p>Prepare for the SAT</p></div>
-<div class="subject"><div class="emoji">🌍</div><h3>Geography</h3><p>Discover our world</p></div>
-<div class="subject"><div class="emoji">🏛️</div><h3>History</h3><p>Learn from the past</p></div>
-<div class="subject"><div class="emoji">📊</div><h3>Economics</h3><p>Understand the economy</p></div>
-</div>
-<p id="noResults" style="display:none;text-align:center;margin-top:20px">No subjects found.</p>
+<p><small>Learning materials will be added in a later development step.</small></p>
+<button id="logoutButton">Logout</button>
+<div id="dashboardMessage" role="status"></div>
 </section>
 
-<section id="about">
-<div class="info">
-<h2>Prepare for Your Future</h2>
-<p>ETHIO EDUCATION HUB aims to help Ethiopian students access organized learning materials, practice questions and university entrance preparation.</p>
-<p><strong>Membership plan:</strong> 50 ETB per year (12 months).</p>
-<p>Membership payment and protected learning access will be activated after secure account and payment integration.</p>
-<a class="btn" href="#home">Start Exploring</a>
-</div>
+<section class="card">
+<h2>About ETHIO EDUCATION HUB</h2>
+<p>Supporting Ethiopian students in Grades 9–12 and university entrance examination preparation.</p>
+<p><strong>Planned membership:</strong> 50 ETB per year (12 months).</p>
+<p>Payment and premium learning access are not activated yet.</p>
 </section>
 </main>
 
 <footer>
 <strong>ETHIO EDUCATION HUB</strong>
-<p>Empowering Ethiopian Students Through Education.</p>
-<p>© 2026 ETHIO EDUCATION HUB. All rights reserved.</p>
+<p>© 2026 All rights reserved.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-function filterSubjects(){
- const term=document.getElementById("search").value.toLowerCase();
- const cards=document.querySelectorAll(".subject");
- let shown=0;
- cards.forEach(card=>{
-  const match=card.innerText.toLowerCase().includes(term);
-  card.style.display=match?"block":"none";
-  if(match)shown++;
- });
- document.getElementById("noResults").style.display=shown?"none":"block";
+/* Replace these two placeholders with your own Supabase details. */
+const SUPABASE_URL = "https://fblovikrbqmryeyxsjzq.supabase.co/auth/v1/.well-known/jwks.json";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_6oimCywajVjDJzPUwfP6DA_KkmWQM4-;
+
+const message = document.getElementById("message");
+const dashboardMessage = document.getElementById("dashboardMessage");
+const authSection = document.getElementById("authSection");
+const dashboard = document.getElementById("dashboard");
+
+let supabaseClient = null;
+
+function showMessage(text, isError=false) {
+  message.textContent = text;
+  message.style.background = isError ? "#ffe8e8" : "#e7f5ec";
+  message.style.color = isError ? "#a12626" : "#176039";
 }
+
+function setLoading(button, loading, text) {
+  button.disabled = loading;
+  button.textContent = loading ? "Please wait..." : text;
+}
+
+function showDashboard(profile) {
+  document.getElementById("studentName").textContent = profile.full_name;
+  document.getElementById("studentGrade").textContent = "Grade " + profile.grade;
+  authSection.classList.add("hidden");
+  dashboard.classList.remove("hidden");
+}
+
+function showLogin() {
+  dashboard.classList.add("hidden");
+  authSection.classList.remove("hidden");
+}
+
+async function loadStudent(user) {
+  const metadata = user.user_metadata || {};
+  const name = metadata.full_name;
+  const grade = Number(metadata.grade);
+
+  if (name && grade >= 9 && grade <= 12) {
+    const { error } = await supabaseClient
+      .from("student_profiles")
+      .upsert({
+        user_id: user.id,
+        full_name: name,
+        grade: grade
+      }, { onConflict: "user_id" });
+
+    if (error) throw error;
+  }
+
+  const { data, error } = await supabaseClient
+    .from("student_profiles")
+    .select("full_name, grade")
+    .eq("user_id", user.id)
+    .single();
+
+  if (error) throw error;
+  showDashboard(data);
+}
+
+async function startApp() {
+  if (!window.supabase) {
+    showMessage("Could not load Supabase. Check your internet connection.", true);
+    return;
+  }
+
+  if (SUPABASE_URL.includes("PASTE_") ||
+      SUPABASE_PUBLISHABLE_KEY.includes("PASTE_")) {
+    showMessage("Please add your Supabase Project URL and Publishable Key in the code.", true);
+    return;
+  }
+
+  try {
+    supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+    const { data, error } = await supabaseClient.auth.getSession();
+    if (error) throw error;
+
+    if (data.session) {
+      try {
+        await loadStudent(data.session.user);
+      } catch (err) {
+        showMessage("Account connected, but profile loading failed: " + err.message, true);
+      }
+    }
+  } catch (err) {
+    showMessage("Connection error: " + err.message, true);
+  }
+}
+
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const button = document.getElementById("registerButton");
+  setLoading(button, true, "Create Student Account");
+
+  try {
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("registerEmail").value.trim();
+    const password = document.getElementById("registerPassword").value;
+    const grade = Number(document.getElementById("grade").value);
+
+    const { data, error } = await supabaseClient.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { full_name: fullName, grade: grade }
+      }
+    });
+
+    if (error) throw error;
+
+    if (data.session) {
+      await loadStudent(data.session.user);
+      showMessage("Registration successful!");
+    } else {
+      showMessage("Registration received! Check your email to confirm your account, then log in.");
+    }
+  } catch (err) {
+    showMessage(err.message, true);
+  } finally {
+    setLoading(button, false, "Create Student Account");
+  }
+});
+
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const button = document.getElementById("loginButton");
+  setLoading(button, true, "Login");
+
+  try {
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) throw error;
+
+    await loadStudent(data.user);
+  } catch (err) {
+    showMessage(err.message, true);
+  } finally {
+    setLoading(button, false, "Login");
+  }
+});
+
+document.getElementById("logoutButton").addEventListener("click", async function() {
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) {
+    dashboardMessage.textContent = error.message;
+    return;
+  }
+  showLogin();
+  showMessage("You have logged out successfully.");
+});
+
+startApp();
 </script>
 </body>
 </html>
