@@ -1,1 +1,125 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b55">
+<title>ETHIO EDUCATION HUB</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4f7fc;color:#17243a;line-height:1.6}
+header{background:#102b55;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:21px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin-left:15px;font-size:14px}
+.hero{background:linear-gradient(130deg,#102b55,#1769aa);color:white;text-align:center;padding:65px 20px}
+.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.2;margin-bottom:15px}
+.hero p{max-width:650px;margin:0 auto 22px;color:#e2edff}
+.btn{display:inline-block;background:#ffca38;color:#17243a;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+section{padding:42px 6%}
+.section-title{text-align:center;margin-bottom:25px}
+.section-title h2{font-size:27px;color:#102b55}
+.section-title p{color:#68758a}
+.grades{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:15px}
+.grade{background:white;padding:22px;text-align:center;border-radius:12px;box-shadow:0 3px 14px #102b5510}
+.grade strong{display:block;color:#1769aa;font-size:25px}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
+.subject{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 14px #102b5510;text-align:center;border:1px solid #e7edf5}
+.subject .emoji{font-size:30px}
+.subject h3{font-size:16px;margin-top:8px}
+.subject p{font-size:12px;color:#68758a}
+.info{background:#e8f1ff;border-radius:14px;padding:25px;text-align:center}
+.info p{margin:10px auto;max-width:650px}
+footer{background:#102b55;color:white;text-align:center;padding:25px 15px}
+input,select{padding:12px;border:1px solid #ccd6e5;border-radius:8px;width:100%;margin:8px 0;font-size:15px}
+.search{max-width:450px;margin:0 auto 22px}
+#message{margin-top:12px;color:#1769aa;font-weight:bold}
+@media(max-width:500px){header{justify-content:center;text-align:center}nav a{margin:0 7px}.hero{padding:48px 16px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">📘 ETHIO EDUCATION HUB</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#grades">Grades</a>
+<a href="#subjects">Subjects</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<h1>Learn Today. Lead Tomorrow.</h1>
+<p>Your learning destination for Ethiopian Grade 9–12 education and university entrance examination preparation.</p>
+<a class="btn" href="#subjects">Explore Subjects</a>
+</section>
+
+<section id="grades">
+<div class="section-title">
+<h2>Choose Your Grade</h2>
+<p>Learning resources for every stage.</p>
+</div>
+<div class="grades">
+<div class="grade"><strong>Grade 9</strong>Learning resources</div>
+<div class="grade"><strong>Grade 10</strong>Learning resources</div>
+<div class="grade"><strong>Grade 11</strong>Learning resources</div>
+<div class="grade"><strong>Grade 12</strong>Exam preparation</div>
+</div>
+</section>
+
+<section id="subjects">
+<div class="section-title">
+<h2>Our Subjects</h2>
+<p>Explore your favorite subjects.</p>
+</div>
+<div class="search">
+<input id="search" type="search" placeholder="Search subjects..." oninput="filterSubjects()">
+</div>
+<div class="subjects" id="subjectList">
+<div class="subject"><div class="emoji">🧬</div><h3>Biology</h3><p>Explore living things</p></div>
+<div class="subject"><div class="emoji">⚗️</div><h3>Chemistry</h3><p>Discover matter</p></div>
+<div class="subject"><div class="emoji">📐</div><h3>Mathematics</h3><p>Build problem-solving skills</p></div>
+<div class="subject"><div class="emoji">⚡</div><h3>Physics</h3><p>Understand the universe</p></div>
+<div class="subject"><div class="emoji">📖</div><h3>English</h3><p>Improve communication</p></div>
+<div class="subject"><div class="emoji">🎓</div><h3>SAT</h3><p>Prepare for the SAT</p></div>
+<div class="subject"><div class="emoji">🌍</div><h3>Geography</h3><p>Discover our world</p></div>
+<div class="subject"><div class="emoji">🏛️</div><h3>History</h3><p>Learn from the past</p></div>
+<div class="subject"><div class="emoji">📊</div><h3>Economics</h3><p>Understand the economy</p></div>
+</div>
+<p id="noResults" style="display:none;text-align:center;margin-top:20px">No subjects found.</p>
+</section>
+
+<section id="about">
+<div class="info">
+<h2>Prepare for Your Future</h2>
+<p>ETHIO EDUCATION HUB aims to help Ethiopian students access organized learning materials, practice questions and university entrance preparation.</p>
+<p><strong>Membership plan:</strong> 50 ETB per year (12 months).</p>
+<p>Membership payment and protected learning access will be activated after secure account and payment integration.</p>
+<a class="btn" href="#home">Start Exploring</a>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>ETHIO EDUCATION HUB</strong>
+<p>Empowering Ethiopian Students Through Education.</p>
+<p>© 2026 ETHIO EDUCATION HUB. All rights reserved.</p>
+</footer>
+
+<script>
+function filterSubjects(){
+ const term=document.getElementById("search").value.toLowerCase();
+ const cards=document.querySelectorAll(".subject");
+ let shown=0;
+ cards.forEach(card=>{
+  const match=card.innerText.toLowerCase().includes(term);
+  card.style.display=match?"block":"none";
+  if(match)shown++;
+ });
+ document.getElementById("noResults").style.display=shown?"none":"block";
+}
+</script>
+</body>
+</html>
