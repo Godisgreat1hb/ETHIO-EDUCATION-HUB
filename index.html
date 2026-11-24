@@ -174,8 +174,8 @@ async function startApp() {
     return;
   }
 
-  if (SUPABASE_URL.includes("PASTE_") ||
-      SUPABASE_PUBLISHABLE_KEY.includes("PASTE_")) {
+  if (SUPABASE_URL.includes("_https://fblovikrbqmryeyxsjzq.supabase.co/auth/v1/.well-known/jwks.json") ||
+      SUPABASE_PUBLISHABLE_KEY.includes("sb_publishable_6oimCywajVjDJzPUwfP6DA_KkmWQM4-_")) {
     showMessage("Please add your Supabase Project URL and Publishable Key in the code.", true);
     return;
   }
@@ -224,7 +224,8 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
     if (data.session) {
       await loadStudent(data.session.user);
-      showMessage("Registration successful!");
+
+showMessage("Registration successful!");
     } else {
       showMessage("Registration received! Check your email to confirm your account, then log in.");
     }
